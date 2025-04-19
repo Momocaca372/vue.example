@@ -18,11 +18,11 @@ public class SecurityConfig implements WebMvcConfigurer {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
         .cors().and()
-        .csrf().disable()
+        .csrf(csrf -> csrf.disable())
         .authorizeHttpRequests(auth -> auth
             .requestMatchers( "/auth/**", "/favicon.ico").permitAll()
             .anyRequest().authenticated()
-        ).httpBasic();
+        ).httpBasic(basic -> basic.disable());
 
         return http.build();
     }
