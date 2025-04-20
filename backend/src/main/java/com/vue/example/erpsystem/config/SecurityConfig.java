@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-
+import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig implements WebMvcConfigurer {
@@ -18,9 +18,9 @@ public class SecurityConfig implements WebMvcConfigurer {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
         .cors().and()
-        .csrf(csrf -> csrf.disable())
+        .csrf().and()
         .authorizeHttpRequests(auth -> auth
-            .requestMatchers( "/auth/**", "/favicon.ico").permitAll()
+            .requestMatchers( "/csrf-token","/auth/**", "/favicon.ico").permitAll()
             .anyRequest().authenticated()
         ).httpBasic(basic -> basic.disable());
 
@@ -32,6 +32,7 @@ public class SecurityConfig implements WebMvcConfigurer {
         registry.addMapping("/**")
                 .allowedOrigins("http://localhost:5173") // 前端地址
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+                .allowedHeaders("*")
                 .allowCredentials(true);
     }
 }

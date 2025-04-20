@@ -40,7 +40,7 @@ export default {
           password: this.password
         },{
 		    withCredentials: true // 如果你的驗證涉及 Cookie，請保留此項
-		  });
+		});
 
 		const msg = res.data.message;
 		this.message = msg;

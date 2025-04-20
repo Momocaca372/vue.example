@@ -16,7 +16,29 @@ import './static/App.css'; // Import the CSS file
 window.$ = $
 window.jQuery = $
 
+import axios from 'axios';
 
+axios.defaults.withCredentials = true; // ⬅️ 讓瀏覽器送 Cookie（必須）
 
-const app = createApp(App);
-app.use(router).mount('#app');
+async function bootstrap() {
+  try {
+    const res = await axios.get('/api/csrf-token');
+    const csrfHeaderName = res.data.headerName;
+    const csrfToken = res.data.token;
+
+    //console.log('[CSRF]', csrfHeaderName, csrfToken);
+
+    // 將 CSRF token 加入所有 axios 請求
+    axios.interceptors.request.use(config => {
+      config.headers[csrfHeaderName] = csrfToken;
+      return config;
+    });
+  } catch (err) {
+    console.warn('[CSRF] 無法取得 token：', err);
+  }
+
+  const app = createApp(App);
+  app.use(router).mount('#app');
+}
+
+bootstrap(); // ✅ 確保一切先取得 CSRF 再初始化 Vue
