@@ -91,3 +91,101 @@ body {
 	box-shadow: 0 0 10px rgba(0,0,0,0.1); /* 可選：邊框效果 */
 	z-index: 10; /* 讓它浮在上層 */
 }
+.custom-gradient-shadow {
+  background: linear-gradient(135deg, rgb(0, 0, 255), rgb(255, 255, 255), rgb(0, 0, 255)); /* 自訂漸層方向和顏色 */
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3); /* 自訂陰影效果 */
+  color: #333; /* 文字顏色 */
+  text-shadow: 0 0 20px white, 0 0 20px white;
+}
+
+.button-container {
+  display: grid;
+  gap: 0.5rem; /* 按鈕之間的間距 */
+  margin-bottom: 1rem; /* 兩排按鈕之間的間距 */
+}
+
+.status-buttons {
+  grid-template-columns: repeat(auto-fit, minmax(80px, auto)); /* 自動調整按鈕寬度，至少 80px */
+  align-items: center; /* 垂直居中 */
+}
+
+
+.filter-button, .order-button {
+  background-color: #f8f9fa; /* 淺灰色背景 */
+  color: #333; /* 黑色文字 */
+  border: 1px solid #ddd; /* 白色框線 */
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* 黑色陰影 */
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.filter-button:hover, .order-button:hover {
+  background-color: #e9ecef; /* Hover 時稍微變深 */
+}
+
+.status-label {
+  margin-right: 0.5rem;
+  color: white; /* 讓 "Order by:" 在深色背景下可見 */
+}
+
+#scrollspy-container {
+  border: 1px solid #ccc;
+  position: relative; /* 保持 relative 以便可能的子元素絕對定位 */
+  overflow-y: auto; /* 超出時顯示垂直滾動條 */
+  height: 40vh;
+}
+
+
+/* 卡片的基本樣式 (可以根據你的喜好調整) */
+.product-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 0.25rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.product-card h5 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.product-info {
+  display: grid;
+  grid-template-columns: auto auto; /* 兩欄：標籤和值 */
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.product-info strong {
+  font-weight: bold;
+}
+
+.card-subviewarea
+{
+	position: relative; /* 保持 relative 以便可能的子元素絕對定位 */
+	height: calc(100% - 10px);
+}
+body > div.container.mt-4.mainspace > div > div.card-body.viewarea > div > div > div:nth-child(1) {
+  padding: 0.5rem !important; /* 縮小內邊距 */
+  font-size: 0.8rem !important; /* 縮小字體大小 */
+}
+body > div.container.mt-4.mainspace > div > div.card-body.viewarea > div > div > div:nth-child(1) button.btn {
+  font-size: 0.7rem !important; /* 進一步縮小按鈕字體 */
+  padding: 0.1rem 0.3rem !important; /* 進一步縮小按鈕內邊距 */
+  height: auto !important; /* 讓按鈕高度根據內容自動調整 */
+  margin-right: 0.25rem !important; /* 縮小按鈕之間的右邊距 */
+  margin-bottom: 0.25rem !important; /* 縮小按鈕之間的下邊距 */
+}
+
+body > div.container.mt-4.mainspace > div > div.card-body.viewarea > div > div > div:nth-child(1) .button-container label {
+  font-size: 0.8rem !important; /* 縮小標籤字體大小 */
+  margin-right: 0.25rem !important; /* 縮小標籤右邊距 */
+}
+
+.button-container {
+  gap: 0.25rem !important; /* 縮小按鈕容器的間距 */
+}

@@ -26,11 +26,12 @@ async function bootstrap() {
     const csrfHeaderName = res.data.headerName;
     const csrfToken = res.data.token;
 
-    //console.log('[CSRF]', csrfHeaderName, csrfToken);
+    console.log('[CSRF]', csrfHeaderName, csrfToken.length);
 
     // 將 CSRF token 加入所有 axios 請求
     axios.interceptors.request.use(config => {
       config.headers[csrfHeaderName] = csrfToken;
+	  console.log('[CSRF]', csrfHeaderName, csrfToken.length);
       return config;
     });
   } catch (err) {

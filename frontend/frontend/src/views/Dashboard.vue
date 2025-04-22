@@ -1,6 +1,6 @@
 <template>
-  <div class="container upperBanner">
-    <h2>Welcome Manager Dashboard</h2>
+  <div class="container upperBanner custom-gradient-shadow shadow p-10 mb-2 rounded">
+    <h2 >Welcome Manager Dashboard</h2>
   </div>
 
   <div class="container mt-4 mainspace">
