@@ -19,10 +19,10 @@ public class SecurityConfig implements WebMvcConfigurer {
         http
         .csrf(csrf -> csrf
 			.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
-			.ignoringRequestMatchers("/csrf-token") // 忽略 /auth/** 的 CSRF 保護
+			.ignoringRequestMatchers("/csrf-token","/product/**", "/favicon.ico") // 忽略 /auth/** 的 CSRF 保護
 		)
         .authorizeHttpRequests(auth -> auth
-            .requestMatchers( "/csrf-token","/auth/**", "/favicon.ico").permitAll()
+            .requestMatchers( "/csrf-token","/auth/**","/product/**", "/favicon.ico").permitAll()
             .anyRequest().authenticated()
         ).httpBasic(basic -> basic.disable());
 

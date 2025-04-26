@@ -20,18 +20,20 @@ import axios from 'axios';
 
 axios.defaults.withCredentials = true; // ⬅️ 讓瀏覽器送 Cookie（必須）
 
+
 async function bootstrap() {
   try {
     const res = await axios.get('/api/csrf-token');
     const csrfHeaderName = res.data.headerName;
-    const csrfToken = res.data.token;
+    const csrfToken = res.data.token; //res.data.token
 
-    console.log('[CSRF]', csrfHeaderName, csrfToken.length);
+    console.log('[CSRF]', csrfHeaderName, csrfToken);
 
     // 將 CSRF token 加入所有 axios 請求
     axios.interceptors.request.use(config => {
       config.headers[csrfHeaderName] = csrfToken;
-	  console.log('[CSRF]', csrfHeaderName, csrfToken.length);
+	  console.log('[CSRF]header: ', csrfHeaderName, csrfToken);
+	  console.log('[CSRF]cookie: ', csrfToken);
       return config;
     });
   } catch (err) {

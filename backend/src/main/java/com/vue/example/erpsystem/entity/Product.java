@@ -22,6 +22,8 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+import com.vue.sample.erpsystem.enums.ProductStatus;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -44,8 +46,9 @@ public class Product {
     @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal amount;
     
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private String status;
+    private ProductStatus status;
     
     @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)

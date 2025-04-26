@@ -22,6 +22,8 @@
 			          <button class="filter-button">製作中</button>
 			          <button class="filter-button">待出貨</button>
 			          <button class="filter-button">已出貨</button>
+					  <button class="filter-button">暫停</button>
+					  <button class="filter-button">下架</button>
 			        </div>
 			        <div class="button-container status-buttons">
 			          <label class="status-label">Order:</label>
