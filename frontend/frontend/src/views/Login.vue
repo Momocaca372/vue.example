@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container viewarea">
 	  <h2>ERP Vue</h2>
 	  <form @submit.prevent="login" class="form-area form-control mb-3" >
 	    <input v-model="username" type="text" name="username"  placeholder="使用者名稱" class="form-control mb-3"/>

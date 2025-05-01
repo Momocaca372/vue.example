@@ -2,17 +2,12 @@ package com.vue.example.erpsystem.controller;
 
 import com.vue.example.erpsystem.entity.Employee;
 import com.vue.example.erpsystem.repository.EmployeeRepository;
-import com.vue.example.erpsystem.config.SecurityConfig;
 import com.vue.example.erpsystem.util.PasswordUtil;
 import com.vue.example.erpsystem.dto.RegisterDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpEntity;
 import jakarta.validation.Valid;
 import java.util.Optional;
 

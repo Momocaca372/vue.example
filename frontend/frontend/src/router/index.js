@@ -3,6 +3,7 @@ import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import Dashboard from '../views/Dashboard.vue'
 import DProduct from '../views/DProduct.vue'
+import DProductCreate from '../views/DProductCreate.vue'
 const routes = [
   {
     path: '/',
@@ -26,6 +27,10 @@ const routes = [
 	  {
 	    path: '/product',
 	    component: DProduct
+	  },
+	  {
+	    path: '/product-create',
+	    component: DProductCreate
 	  }
 	  
     ]
